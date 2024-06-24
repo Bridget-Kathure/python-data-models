@@ -12,6 +12,8 @@ class Teacher(models.Model):
     hire_date = models.DateField()
     gender = models.TextField()
     picture = models.ImageField()
+    course_code = models.SmallIntegerField()
+    salary = models.BigIntegerField()
 
     def __str__(self):
         return f"{self.first_name}  {self.last_name}"
