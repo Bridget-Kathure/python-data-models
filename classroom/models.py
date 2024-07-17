@@ -1,6 +1,9 @@
+"""This module provides functionality for handling user authentication."""
+
 from django.db import models
 
-class Class(models.Model):
+class Classroom(models.Model):
+    """This module provides functionality for handling user authentication."""
     class_name = models.TextField()
     class_capacity = models.SmallIntegerField()
     class_schedule = models.TextField()
