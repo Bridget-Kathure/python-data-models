@@ -1,21 +1,17 @@
+# pylint: disable=C0115,C0116
+
 
 from django.db import models
-from django.db import models
-from course.models import Course
 from django.db.models.manager import BaseManager
-from django.db import models
-from datetime import time
+from course.models import Course
 
 class ClassPeriod(models.Model):
-    ## Class Period Details
-    start_time = models.TimeField()
-    end_time = models.TimeField()
-    day_of_week = models.CharField(max_length=20)
+    start_time = models.TimeField(blank=True, null=True)
+    end_time = models.TimeField(blank=True, null=True)
+    day_of_week = models.CharField(max_length=20, blank=True)
     objects: BaseManager["ClassPeriod"]
-    ## Relationship to Course
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='class_periods')
-    classroom = models.CharField(max_length=50)
+    classroom = models.CharField(max_length=50, blank=True)
+
     def __str__(self):
         return f"{self.day_of_week} ({self.start_time} - {self.end_time})"
-
-
