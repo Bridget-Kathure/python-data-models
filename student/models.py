@@ -2,7 +2,10 @@
 
 from django.db import models
 
+import course
+
 class Student(models.Model):
+    courses = models.ManyToManyField(course)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField(blank=True)
